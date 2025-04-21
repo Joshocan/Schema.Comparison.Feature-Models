@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="autolayoutconstraints" value="false"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showconstraints" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="Artefacts">
+			<description>Represents the sources of the artefacts being compared, specifically the models or schemas used in the comparison process.</description>
+			<feature mandatory="true" name="Models">
+				<description>Represents model-based artefacts (e.g., UML, EMF).</description>
+			</feature>
+			<feature mandatory="true" name="Schemas">
+				<description>Represents schema-based artefacts (e.g., XSD, JSON Schema).</description>
+			</feature>
+			<or abstract="true" mandatory="true" name="Techspace">
+				<description>Defines the technological space of artefacts, focusing on different formats used for representing models and data. Multiple techspace types can be selected.</description>
+				<or abstract="true" name="XML-based">
+					<description>Artefacts using XML-based formats for data representation and interchange. Multiple XML-based formats can be selected.</description>
+					<feature name="XML">
+						<description>Standard XML format for representing structured data.</description>
+					</feature>
+					<feature name="RDF">
+						<description>Resource Description Framework (RDF) used for representing data on the web.</description>
+					</feature>
+					<feature name="XMI">
+						<description>XML Metadata Interchange (XMI) for exchanging metadata information via XML.</description>
+					</feature>
+				</or>
+				<feature name="JSON">
+					<description>JavaScript Object Notation (JSON) used for lightweight data interchange.</description>
+				</feature>
+				<feature name="DSL">
+					<description>Domain-Specific Languages (DSLs) used for specific application domains.</description>
+				</feature>
+				<feature name="SQL">
+					<description>Structured Query Language (SQL) used for database query and data manipulation.</description>
+				</feature>
+				<feature name="GraphQL">
+					<description>GraphQL query language used for APIs to request data from databases or services.</description>
+				</feature>
+			</or>
+			<alt abstract="true" name="Formalism">
+				<description>Represents various formal models or structures used in artefacts to define data and relationships. Only one formalism type can be selected.</description>
+				<feature name="Set">
+					<description>Set-based formalism for representing collections of objects or entities.</description>
+				</feature>
+				<feature name="Graphs">
+					<description>Graph-based formalism for representing entities and their relationships as graphs.</description>
+				</feature>
+				<feature name="Logics">
+					<description>Logical formalisms used to represent models and their constraints.</description>
+				</feature>
+				<feature name="Object-Oriented">
+					<description>Object-Oriented formalism used for representing models based on objects and their interactions.</description>
+				</feature>
+				<feature name="OWL">
+					<description>Web Ontology Language (OWL) for representing knowledge about domains in formal semantics.</description>
+				</feature>
+			</alt>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<imp>
+				<disj>
+					<var>Models</var>
+					<var>Schemas</var>
+				</disj>
+				<var>Artefacts</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<disj>
+					<var>XML</var>
+					<disj>
+						<var>RDF</var>
+						<disj>
+							<var>JSON</var>
+							<disj>
+								<var>SQL</var>
+								<var>GraphQL</var>
+							</disj>
+						</disj>
+					</disj>
+				</disj>
+				<var>Schemas</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<disj>
+					<var>XMI</var>
+					<disj>
+						<var>Set</var>
+						<disj>
+							<var>Graphs</var>
+							<disj>
+								<var>Logics</var>
+								<disj>
+									<var>Object-Oriented</var>
+									<var>OWL</var>
+								</disj>
+							</disj>
+						</disj>
+					</disj>
+				</disj>
+				<var>Models</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>DSL</var>
+				<disj>
+					<var>Models</var>
+					<var>Schemas</var>
+				</disj>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>
