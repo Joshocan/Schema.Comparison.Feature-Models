@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="autolayoutconstraints" value="false"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showconstraints" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="Multi-artefact Management">
+			<description>High-level feature for managing multiple artefacts, integrating different management operations and approaches for optimal handling.</description>
+			<feature abstract="true" mandatory="true" name="Operations">
+				<description>Defines the operations or actions that can be performed on multiple artefacts, ensuring the ability to manipulate artefacts effectively.</description>
+			</feature>
+			<and abstract="true" mandatory="true" name="Artefacts">
+				<description>Refers to the artefacts being managed, which may include files, models, or data components that need to be handled in the multi-artefact management system.</description>
+			</and>
+			<and abstract="true" mandatory="true" name="Multi-modal">
+				<description>Supports various modes or methods of managing and interacting with artefacts, including visual, text-based, and graphical interfaces.</description>
+			</and>
+			<and abstract="true" mandatory="true" name="Approaches">
+				<description>Encompasses different strategies or methodologies used for multi-artefact management, such as systematic, flexible, or automated approaches.</description>
+			</and>
+		</and>
+	</struct>
+</featureModel>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="autolayoutconstraints" value="false"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showconstraints" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="Multi-artefact Management">
+			<description>
+				High-level feature for managing multiple artefacts within a dynamic, heterogeneous data ecosystem.
+				This feature addresses the growing complexity and heterogeneity of data models and schemas, focusing on structural, semantic, and similarity-based differences across domains.
+			</description>
+			<feature abstract="true" mandatory="true" name="Operations">
+				<description>Defines the operations or actions that can be performed on multiple artefacts, ensuring the ability to manipulate artefacts effectively.</description>
+			</feature>
+			<feature abstract="true" mandatory="true" name="Artefacts">
+				<description>
+					Refers to the sources of the artefacts being compared, specifically the models or schemas that are used in the comparison process.
+					Artefacts can come from diverse domains and abstraction levels, such as models in Model-Driven Engineering (MDE) or schemas in database systems.
+				</description>
+			</feature>
+			<feature abstract="true" mandatory="true" name="Multi-modal">
+				<description>
+					Addresses the paradigm of handling multiple, diverse model of Heterogeneity ie. Homogeneous or Heterogeneous  .
+					This feature is concerned with the interaction where each model may have different constraints, rules, or semantics.
+				</description>
+			</feature>
+			<feature abstract="true" mandatory="true" name="Approaches">
+				<description>
+					Covers a wide range of ML/AI-based techniques used to address the challenges of model and schema comparison.
+					The approaches also includes Hybrid approaches with classical ones.
+				</description>
+			</feature>
+		</and>
+	</struct>
+</featureModel>
