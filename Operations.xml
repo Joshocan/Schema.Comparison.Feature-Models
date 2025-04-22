@@ -57,6 +57,57 @@
 				</feature>
 			</alt>
 		</and>
+		<and abstract="true" mandatory="true" name="Correspondence">
+			<description>Describes the nature and characteristics of relationships between elements.</description>
+			<or abstract="true" mandatory="true" name="Components">
+				<description>Classifies the types of elements we are matching.</description>
+				<alt abstract="true" name="Heterogeneous">
+					<description>Elements from different categories are matched.</description>
+					<feature name="Metamodel">
+						<description>Model that defines the language for other models (e.g., UML metamodel).</description>
+					</feature>
+					<feature name="Model">
+						<description>Concrete representation of a system (e.g., a specific UML diagram).</description>
+					</feature>
+					<feature name="Instances">
+						<description>Concrete data elements that conform to a model.</description>
+					</feature>
+				</alt>
+				<feature name="Homogeneous">
+					<description>Elements from the same category are matched (e.g., two UML class diagrams).</description>
+				</feature>
+			</or>
+			<or abstract="true" mandatory="true" name="Properties">
+				<description>Describes the qualities or attributes of the matching relationships.</description>
+				<or abstract="true" name="Arity">
+					<description>Describes how many elements are involved in a matching relationship.</description>
+					<feature name="Multi-ary">
+						<description>Involves more than two elements in a relationship.</description>
+					</feature>
+					<feature name="Binary">
+						<description>Involves exactly two elements in a relationship.</description>
+					</feature>
+				</or>
+				<or abstract="true" name="Authority">
+					<description>Describes who controls or governs the matching process.</description>
+					<feature name="Centralised">
+						<description>A single entity controls the matching process.</description>
+					</feature>
+					<feature name="Decentralised">
+						<description>Multiple entities control the matching process.</description>
+					</feature>
+				</or>
+				<or abstract="true" name="Information Content">
+					<description>Describes how information is distributed across related elements.</description>
+					<feature name="Symmetric">
+						<description>Elements contain unique, independent information.</description>
+					</feature>
+					<feature name="Asymmetric">
+						<description>One element's information is derived from the other.</description>
+					</feature>
+				</or>
+			</or>
+		</and>
 	</and>
 	<feature abstract="true" mandatory="true" name="Mapping">
 		<description>Defines the process of establishing relationships or transformations between different models or schemas. Mapping depends on the Matching stage.</description>
