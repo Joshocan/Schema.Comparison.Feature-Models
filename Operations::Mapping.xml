@@ -73,6 +73,15 @@
 					</feature>
 				</or>
 			</alt>
+			<or abstract="true" mandatory="true" name="Changes">
+				<description>Defines how changes in models are handled during the mapping process.</description>
+				<feature name="Serialisation">
+					<description>Changes are applied one at a time in a specific order, avoiding conflicts but may be slower.</description>
+				</feature>
+				<feature name="Parallelisation">
+					<description>Changes are applied simultaneously, increasing speed but introducing the possibility of conflicts.</description>
+				</feature>
+			</or>
 		</and>
 	</struct>
 </featureModel>
