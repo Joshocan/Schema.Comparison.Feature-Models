@@ -46,7 +46,7 @@
 					</feature>
 				</or>
 			</and>
-			<alt abstract="true" mandatory="true" name="Unification Architecture">
+			<and abstract="true" mandatory="true" name="Unification Architecture">
 				<description>Defines the architecture for managing mappings across different models, describing how control and governance are organized.</description>
 				<or abstract="true" name="Global View">
 					<description>Describes different centralized approaches for managing mapping control across models.</description>
@@ -72,7 +72,7 @@
 						<description>Entities delegate some control to a coordinating body for specific aspects of the mapping process.</description>
 					</feature>
 				</or>
-			</alt>
+			</and>
 			<or abstract="true" mandatory="true" name="Changes">
 				<description>Defines how changes in models are handled during the mapping process.</description>
 				<feature name="Serialisation">
