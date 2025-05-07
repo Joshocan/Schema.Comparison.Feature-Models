@@ -13,6 +13,9 @@
 	<struct>
 		<and abstract="true" mandatory="true" name="Operations::Alignment">
 			<description>The process of keeping models synchronized and consistent through change propagation</description>
+			<feature abstract="true" mandatory="true" name="Consistency">
+				<description>Automatic transfer of changes between related models</description>
+			</feature>
 			<and abstract="true" mandatory="true" name="Change_Propagation">
 				<description>Automatic transfer of changes between related models</description>
 				<alt abstract="true" name="Representation">
@@ -32,7 +35,7 @@
 						<description>Types of updates that can be propagated</description>
 					</feature>
 				</alt>
-				<and abstract="true" mandatory="true" name="Allowed_Update_Types">
+				<and abstract="true" name="Allowed_Update_Types">
 					<alt abstract="true" name="Atomic_Updates">
 						<description>Basic indivisible operations</description>
 						<feature name="Insert">
