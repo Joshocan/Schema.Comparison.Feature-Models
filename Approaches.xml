@@ -15,7 +15,7 @@
 			<description>Methods to resolve schema/model integration challenges.</description>
 			<alt abstract="true" mandatory="true" name="Problems">
 				<description>Challenges in schema/model integration.</description>
-				<graphics key="collapsed" value="false"/>
+				<graphics key="collapsed" value="true"/>
 				<feature name="Inconsistency"/>
 				<feature name="Semantic_Ambiguities"/>
 				<feature name="Structural_Variations"/>
