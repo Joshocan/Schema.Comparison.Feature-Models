@@ -15,6 +15,7 @@
 			<description>Methods to resolve schema/model integration challenges.</description>
 			<alt abstract="true" mandatory="true" name="Problems">
 				<description>Challenges in schema/model integration.</description>
+				<graphics key="collapsed" value="false"/>
 				<feature name="Inconsistency"/>
 				<feature name="Semantic_Ambiguities"/>
 				<feature name="Structural_Variations"/>
@@ -27,12 +28,14 @@
 			</alt>
 			<and abstract="true" mandatory="true" name="Operations">
 				<description>Processes to align schemas/models.</description>
+				<graphics key="collapsed" value="true"/>
 				<feature name="Matching"/>
 				<feature name="Mapping"/>
 				<feature name="Alignment"/>
 			</and>
 			<alt abstract="true" mandatory="true" name="Application_Domain">
 				<description>Target domains for integration.</description>
+				<graphics key="collapsed" value="true"/>
 				<feature name="Databases"/>
 				<feature name="MDE"/>
 				<feature name="Information_Science"/>
@@ -40,31 +43,39 @@
 				<feature name="Cyber_Physical_Systems"/>
 			</alt>
 			<and abstract="true" mandatory="true" name="Implementation">
+				<graphics key="collapsed" value="true"/>
 				<or abstract="true" name="AI_Theme">
+					<graphics key="collapsed" value="true"/>
 					<and abstract="true" name="NLP">
+						<graphics key="collapsed" value="true"/>
 						<feature name="Text_Embedding_Transfer"/>
 						<feature name="LLM_FineTuning"/>
 						<alt name="NLP_Transfer_Scope">
+							<graphics key="collapsed" value="true"/>
 							<feature name="Domain_Adaptation"/>
 							<feature name="Multilingual_Transfer"/>
 						</alt>
 					</and>
 					<and abstract="true" name="Knowledge_Graphs">
+						<graphics key="collapsed" value="true"/>
 						<feature name="Entity_Embedding_Transfer"/>
 						<feature name="Schema_Mapping_Transfer"/>
 						<feature name="Graph_Neural_Transfer"/>
 					</and>
 					<alt abstract="true" name="Meta_Learning">
+						<graphics key="collapsed" value="true"/>
 						<feature name="MAML"/>
 						<feature name="Metric_Based_Transfer"/>
 						<feature name="Memory_Augmented_Transfer"/>
 					</alt>
 					<alt abstract="true" name="Transfer_Learning">
+						<graphics key="collapsed" value="true"/>
 						<feature name="Feature_Extraction"/>
 						<feature name="Full_Model_Finetuning"/>
 						<feature name="Progressive_Neural_Transfer"/>
 					</alt>
 					<and abstract="true" name="Recommender_Systems">
+						<graphics key="collapsed" value="true"/>
 						<feature name="Cold_Start_Transfer"/>
 						<feature name="Cross_Domain_Transfer"/>
 						<feature name="Behavioral_Transfer"/>
@@ -72,37 +83,45 @@
 					<feature name="LLM"/>
 				</or>
 				<alt abstract="true" name="Learning_Techniques">
+					<graphics key="collapsed" value="true"/>
 					<and abstract="true" name="Supervised_Learning">
+						<graphics key="collapsed" value="true"/>
 						<feature name="Classification"/>
 						<feature name="Regression"/>
 						<feature name="Neural_Networks"/>
 						<alt abstract="true" name="Classification_Algorithms">
+							<graphics key="collapsed" value="true"/>
 							<feature name="SVM"/>
 							<feature name="Decision_Tree"/>
 							<feature name="Random_Forest"/>
 						</alt>
 						<alt abstract="true" name="Regression_Methods">
+							<graphics key="collapsed" value="true"/>
 							<feature name="Linear_Regression"/>
 							<feature name="Ridge"/>
 							<feature name="Lasso"/>
 						</alt>
 					</and>
 					<and abstract="true" name="Unsupervised_Learning">
+						<graphics key="collapsed" value="true"/>
 						<feature name="Clustering"/>
 						<feature name="Dimensionality_Reduction"/>
 						<feature name="Anomaly_Detection"/>
 						<alt abstract="true" name="Clustering_Algorithms">
+							<graphics key="collapsed" value="true"/>
 							<feature name="K-means"/>
 							<feature name="DBSCAN"/>
 							<feature name="Hierarchical"/>
 						</alt>
 						<alt abstract="true" name="Dimensionality_Methods">
+							<graphics key="collapsed" value="true"/>
 							<feature name="PCA"/>
 							<feature name="T-SNE"/>
 							<feature name="Auto-encoders"/>
 						</alt>
 					</and>
 					<and abstract="true" name="Deep_Learning">
+						<graphics key="collapsed" value="true"/>
 						<feature name="FNN"/>
 						<feature name="CNN"/>
 						<feature name="RNN"/>
@@ -112,6 +131,7 @@
 						<feature name="Transformer_Transfer"/>
 					</and>
 					<and abstract="true" name="Reinforcement_Learning">
+						<graphics key="collapsed" value="true"/>
 						<feature name="Q-Learning"/>
 						<feature name="Deep_Q_Network"/>
 						<feature name="Policy_Gradient"/>
@@ -119,12 +139,15 @@
 				</alt>
 			</and>
 			<or abstract="true" mandatory="true" name="Model_Evaluation">
+				<graphics key="collapsed" value="true"/>
 				<and abstract="true" name="Accuracy_Metrics">
+					<graphics key="collapsed" value="true"/>
 					<feature name="Precision"/>
 					<feature name="Recall"/>
 					<feature name="F1_Score"/>
 				</and>
 				<and abstract="true" name="Robustness_Performance">
+					<graphics key="collapsed" value="true"/>
 					<feature name="Scalability"/>
 					<feature name="Execution_Time"/>
 				</and>
