@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="autolayoutconstraints" value="false"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showconstraints" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="Multi_Artefacts">
+			<description>Management of multiple model/schema artefacts with diverse characteristics, enabling their integration and comparison.</description>
+			<graphics key="collapse" value="true"/>
+			<alt abstract="true" mandatory="true" name="Abstraction_Level">
+				<description>Defines the levels at which artefacts can be managed, from instances to meta-models.</description>
+				<graphics key="collapsed" value="true"/>
+				<graphics key="collapse" value="true"/>
+				<feature name="Instance"/>
+				<feature name="Model"/>
+				<feature name="Meta-model"/>
+			</alt>
+			<and abstract="true" name="Matching_Level">
+				<description>Represents the different units or approaches used in the matching process.</description>
+				<graphics key="collapsed" value="true"/>
+				<or abstract="true" name="Structural">
+					<description>Focuses on matching based on the structure of models or schemas. Select exactly one approach.</description>
+					<graphics key="collapsed" value="false"/>
+					<feature name="Graph">
+						<description>Matching based on graph structures in the models or schemas.</description>
+					</feature>
+					<feature name="Syntactic / Linguistic">
+					<description>Matching based on the syntactic or linguistic aspects of the models or schemas.</description>
+				</feature>
+				<feature name="Tree/Textual">
+				<description>Matching based on tree structures or textual representations.</description>
+			</feature>
+		</or>
+		<or abstract="true" name="Semantic">
+			<description>Focuses on matching based on the semantic meaning of the data. Select exactly one approach.</description>
+			<graphics key="collapsed" value="false"/>
+			<feature name="Instance-based">
+				<description>Matching based on instances or data objects in the models or schemas.</description>
+			</feature>
+			<feature name="DSL-Driven">
+				<description>Matching based on domain-specific languages (DSLs) used in the models or schemas.</description>
+			</feature>
+			<feature name="Ontology-based">
+				<description>Matching based on ontologies and their relationships within models or schemas.</description>
+			</feature>
+		</or>
+		<or abstract="true" name="Similarity">
+			<description>Focuses on matching based on the similarity of elements in the models or schemas. Select exactly one approach.</description>
+			<graphics key="collapsed" value="false"/>
+			<feature name="Element">
+				<description>Matching based on the similarity of individual elements in the models or schemas.</description>
+			</feature>
+			<feature name="Name">
+				<description>Matching based on the similarity of names in the models or schemas.</description>
+			</feature>
+			<feature name="Value">
+				<description>Matching based on the similarity of values in the models or schemas.</description>
+			</feature>
+		</or>
+	</and>
+	<and abstract="true" mandatory="true" name="Artefacts">
+		<description>Defines the artefacts involved in the comparison and integration process, such as models and schemas.</description>
+		<graphics key="collapsed" value="true"/>
+		<graphics key="collapse" value="true"/>
+		<or abstract="true" mandatory="true" name="Type">
+			<feature name="Models"/>
+			<feature name="Schemas"/>
+		</or>
+		<alt abstract="true" name="TechSpace">
+			<description>Defines the technological space of the artefacts, including the types of representations and their formats.</description>
+			<graphics key="collapse" value="true"/>
+			<alt abstract="true" name="XML-based">
+				<description>Specifies artefacts based on XML technologies.</description>
+				<graphics key="collapse" value="true"/>
+				<feature name="XML"/>
+				<feature name="RDF"/>
+				<feature name="XMI"/>
+			</alt>
+			<feature name="JSON"/>
+			<feature name="DSL"/>
+			<feature name="SQL"/>
+			<feature name="GraphQL"/>
+		</alt>
+		<alt abstract="true" name="Formalism">
+			<description>Describes the formal logic and structures used for representing artefacts in different domains.</description>
+			<graphics key="collapse" value="true"/>
+			<feature name="Set"/>
+			<feature name="Graphs"/>
+			<feature name="Logics"/>
+			<feature name="Object_Oriented"/>
+			<feature name="OWL"/>
+		</alt>
+	</and>
+	<and abstract="true" mandatory="true" name="Execution_Context">
+		<description>Defines the context under which the artefacts are executed, including invocation, storage, and environmental setup.</description>
+		<graphics key="collapsed" value="true"/>
+		<graphics key="collapse" value="true"/>
+		<alt abstract="true" mandatory="true" name="Invocation">
+			<description>Defines the conditions under which the artefacts are invoked, whether once or repeatedly.</description>
+			<graphics key="collapse" value="true"/>
+			<feature name="Once"/>
+			<feature name="Repeated"/>
+		</alt>
+		<alt abstract="true" name="Storage">
+			<description>Defines where the artefacts are stored during execution.</description>
+			<graphics key="collapse" value="true"/>
+			<feature name="Transient"/>
+			<alt abstract="true" name="Persistent">
+				<description>Defines persistent storage options for artefacts that need to be preserved.</description>
+				<graphics key="collapse" value="true"/>
+				<feature name="Cloud-based"/>
+				<feature name="Local_drive"/>
+				<feature name="In-memory"/>
+			</alt>
+		</alt>
+	</and>
+	<or abstract="true" mandatory="true" name="Comparison">
+		<description>Defines the operations for comparing models and schemas to detect similarities and differences.</description>
+		<graphics key="collapsed" value="true"/>
+		<graphics key="collapse" value="true"/>
+		<feature name="Matching"/>
+		<feature name="Mapping"/>
+		<feature name="Alignment"/>
+	</or>
+	<and abstract="true" mandatory="true" name="Management">
+		<description>Defines how the artefacts are managed and how correspondence between them is handled.</description>
+		<graphics key="collapsed" value="true"/>
+		<graphics key="collapse" value="true"/>
+		<and abstract="true" name="Correspondence">
+			<description>Defines the relationships or correspondences between the elements of the artefacts.</description>
+			<graphics key="collapsed" value="true"/>
+			<graphics key="collapse" value="true"/>
+			<and abstract="true" mandatory="true" name="Constraints">
+				<description>Defines the constraints that need to be satisfied between different artefacts or within an artefact.</description>
+				<graphics key="collapsed" value="false"/>
+				<graphics key="collapse" value="true"/>
+				<or abstract="true" name="Privacy">
+					<description>Technical approaches for privacy preservation</description>
+					<feature name="Anonymization">
+						<description>Removal/modification of identifiable information</description>
+					</feature>
+					<feature name="Pseudonymization">
+						<description>Replacement with artificial identifiers</description>
+					</feature>
+					<feature name="Encryption">
+						<description>Cryptographic protection of sensitive data</description>
+					</feature>
+				</or>
+				<alt abstract="true" mandatory="true" name="Arity">
+					<description>Defines the arity (number of elements) involved in the correspondence relationships.</description>
+					<graphics key="collapsed" value="false"/>
+					<graphics key="collapse" value="true"/>
+					<feature name="Multi-ary"/>
+					<feature name="Binary"/>
+				</alt>
+				<alt abstract="true" mandatory="true" name="Heterogeneity">
+					<description>Defines the heterogeneity in the data, either homogeneous or heterogeneous.</description>
+					<graphics key="collapsed" value="false"/>
+					<graphics key="collapse" value="true"/>
+					<feature name="Homogeneous"/>
+					<feature name="Heterogeneous"/>
+				</alt>
+			</and>
+			<and abstract="true" name="Properties">
+				<description>Defines the properties of the correspondence relationships between elements.</description>
+				<graphics key="collapsed" value="false"/>
+				<graphics key="collapse" value="true"/>
+				<alt abstract="true" name="Authority">
+					<description>Defines whether the authority over correspondence is centralized or decentralized.</description>
+					<graphics key="collapsed" value="false"/>
+					<graphics key="collapse" value="true"/>
+					<feature name="Centralised"/>
+					<feature name="Decentralised"/>
+				</alt>
+				<alt abstract="true" name="Information_Content">
+					<description>Defines whether the information in the correspondence is symmetric or asymmetric.</description>
+					<graphics key="collapsed" value="false"/>
+					<graphics key="collapse" value="true"/>
+					<feature name="Symmetric"/>
+					<feature name="Asymmetric"/>
+				</alt>
+			</and>
+			<alt abstract="true" mandatory="true" name="Commonality">
+				<description>Defines whether the mapping rules are predefined or implicit.</description>
+				<graphics key="collapse" value="true"/>
+				<feature name="Pre-defined"/>
+				<feature name="Implicit"/>
+			</alt>
+		</and>
+		<and abstract="true" name="Consistency">
+			<description>Defines how consistency is maintained in the artefacts, including change propagation and validation.</description>
+			<graphics key="collapsed" value="true"/>
+			<graphics key="collapse" value="true"/>
+			<and abstract="true" name="Verification">
+				<description>Methods for ensuring artefact consistency across different dimensions</description>
+				<graphics key="collapsed" value="true"/>
+				<alt abstract="true" name="Verification_Scope">
+					<description>Granularity level for consistency checks</description>
+					<feature name="Inter-artefact">
+						<description>Horizontal checks between different artefacts/models</description>
+					</feature>
+					<feature name="Intra-artefact">
+						<description>Vertical checks within a single artefact hierarchy</description>
+					</feature>
+				</alt>
+				<or abstract="true" name="Verification_Techniques">
+					<description>Technical methods for consistency validation</description>
+					<feature name="Static_Analysis">
+						<description>Structure/pattern analysis without execution</description>
+					</feature>
+					<feature name="Dynamic_Validation">
+						<description>Runtime behavior verification</description>
+					</feature>
+					<feature name="Theorem_Proving">
+						<description>Formal mathematical verification</description>
+					</feature>
+				</or>
+			</and>
+			<and abstract="true" name="Change_Propagation">
+				<description>Describes how changes are propagated between artefacts and what types of updates are allowed.</description>
+				<graphics key="collapsed" value="true"/>
+				<graphics key="collapse" value="true"/>
+				<and abstract="true" name="Changes">
+					<description>Defines how changes in models evolution.</description>
+					<graphics key="collapsed" value="true"/>
+					<feature name="Serialisation">
+						<description>Changes are applied one at a time in a specific order, avoiding conflicts but may be slower.</description>
+					</feature>
+					<feature name="Parallelisation">
+						<description>Changes are applied simultaneously, increasing speed but introducing the possibility of conflicts.</description>
+					</feature>
+				</and>
+				<and abstract="true" name="Allowed_Update_Types">
+					<description>Defines the types of updates that can be propagated.</description>
+					<graphics key="collapsed" value="false"/>
+					<graphics key="collapse" value="true"/>
+					<alt abstract="true" name="Atomic_Updates">
+						<graphics key="collapsed" value="false"/>
+						<graphics key="collapse" value="true"/>
+						<feature name="Insert"/>
+						<feature name="Update"/>
+						<feature name="Delete"/>
+						<feature name="Rename"/>
+						<feature name="Move"/>
+						<feature name="Merge"/>
+						<feature name="Split"/>
+					</alt>
+					<alt abstract="true" name="Complex_Update">
+						<graphics key="collapse" value="true"/>
+						<feature name="Sequence"/>
+						<feature name="Parallelism"/>
+						<feature name="Contingency_Plan"/>
+					</alt>
+				</and>
+				<alt abstract="true" name="Propagation_Direction">
+					<description>Defines the direction of propagation (forward, backward, or bidirectional).</description>
+					<graphics key="collapsed" value="false"/>
+					<graphics key="collapse" value="true"/>
+					<feature name="Forward"/>
+					<feature name="Backward"/>
+					<feature name="Bidirectional"/>
+				</alt>
+				<alt abstract="true" name="Propagation_Scope">
+					<description>Defines whether the propagation is local or global across the artefacts.</description>
+					<graphics key="collapsed" value="true"/>
+					<graphics key="collapse" value="true"/>
+					<feature name="Local"/>
+					<feature name="Global"/>
+				</alt>
+				<alt abstract="true" name="Propagation_policy">
+					<description>Defines the policy governing how changes are propagated.</description>
+					<graphics key="collapsed" value="true"/>
+					<graphics key="collapse" value="true"/>
+					<feature name="Immediate"/>
+					<feature name="Defined"/>
+					<feature name="Conditional"/>
+				</alt>
+			</and>
+			<and abstract="true" name="Conformance">
+				<description>The "Conformance" feature ensures that models adhere to the rules and standards of their modeling language. It focuses on well-formedness and metamodel definitions.</description>
+				<graphics key="collapsed" value="true"/>
+				<and abstract="true" name="Metamodel_Conformance">
+					<description>Validation against language definitions</description>
+					<alt abstract="true" name="Metamodel_Type">
+						<description>Metamodel definition approach</description>
+						<feature name="Fixed">
+							<description>Predefined unmodifiable metamodel (e.g., UML)</description>
+						</feature>
+						<and abstract="true" name="Customizable">
+							<description>Extensible metamodel configurations</description>
+							<alt abstract="true" name="Customization_Level">
+								<feature name="Append-only"/>
+								<feature name="Freely_Modifiable"/>
+							</alt>
+							<feature name="Versioning_Support">
+								<description>Track metamodel evolution history</description>
+							</feature>
+						</and>
+					</alt>
+					<alt abstract="true" name="Metamodel_Representation">
+						<description>Technical implementation</description>
+						<feature name="Graph-Based">
+							<description>Type graphs or similar structures</description>
+						</feature>
+						<feature name="Algebraic">
+							<description>Formal mathematical representations</description>
+						</feature>
+					</alt>
+					<or abstract="true" name="Metamodel_Constraints">
+						<description>Constraint specification methods</description>
+						<feature name="OCL"/>
+						<feature name="First-Order_Logic"/>
+						<feature name="DSL_Constraints"/>
+					</or>
+				</and>
+				<and abstract="true" name="Instance_Conformance">
+					<description>Validation of model instances</description>
+					<alt abstract="true" name="Validation_Approach">
+						<description>Checking methodology</description>
+						<feature name="Static_Checking"/>
+						<feature name="Dynamic_Checking"/>
+						<feature name="Hybrid_Approach"/>
+					</alt>
+					<and abstract="true" name="Well_Formedness">
+						<description>Basic validity rules</description>
+						<feature name="Typing">
+							<description>Correct type assignments</description>
+						</feature>
+						<feature name="Cardinality">
+							<description>Relationship constraints</description>
+						</feature>
+						<feature name="Naming_Conventions"/>
+					</and>
+				</and>
+			</and>
+		</and>
+		<and abstract="true" name="Transformation">
+			<description>Systematic conversion of artefacts between representations while preserving semantics and addressing heterogeneity</description>
+			<graphics key="collapsed" value="true"/>
+			<graphics key="collapse" value="true"/>
+			<alt abstract="true" mandatory="true" name="Paradigm">
+				<description>Fundamental transformation approach</description>
+				<feature name="Rule-based">
+					<description>Declarative pattern-replace transformations</description>
+				</feature>
+				<feature name="Model-driven">
+					<description>Metamodel-guided transformations</description>
+				</feature>
+				<feature name="Operator-based">
+					<description>Discrete transformation operations</description>
+				</feature>
+			</alt>
+			<and abstract="true" name="Transformation_Properties">
+				<description>Core characteristics of the transformation</description>
+				<alt abstract="true" name="Direction">
+					<description>Information flow directionality</description>
+					<feature name="Unidirectional">
+						<description>One-way transformation (e.g., model-to-code)</description>
+					</feature>
+					<feature name="Bi-directional">
+						<description>Round-trip transformations</description>
+					</feature>
+					<feature name="Multidirectional">
+						<description>N-way synchronization</description>
+					</feature>
+				</alt>
+				<alt abstract="true" name="Granularity">
+					<description>Transformation unit size</description>
+					<feature name="Element-level"/>
+					<feature name="Batch-level"/>
+				</alt>
+			</and>
+			<or abstract="true" name="Techniques">
+				<description>Technical implementation methods</description>
+				<feature name="Weaving">
+					<description>Link creation without modification</description>
+				</feature>
+				<feature name="Merging">
+					<description>Combination of model elements</description>
+				</feature>
+				<feature name="Extension">
+					<description>Addition of new properties</description>
+				</feature>
+				<and abstract="true" name="Advanced">
+					<feature name="Dynamic_typing"/>
+					<feature name="Heterogenous_transformations"/>
+					<feature name="Incremental_transformation"/>
+				</and>
+			</or>
+			<and abstract="true" name="Context">
+				<description>Execution environment characteristics</description>
+				<alt abstract="true" name="Mode">
+					<description>Transformation domain relationship</description>
+					<feature name="Endogenous">
+						<description>Within same technological space</description>
+					</feature>
+					<feature name="Exogenous">
+						<description>Cross-technology transformations</description>
+					</feature>
+				</alt>
+				<alt abstract="true" name="Abstraction_level">
+					<description>Semantic distance between source/target</description>
+					<feature name="Horizontal">
+						<description>Same abstraction level</description>
+					</feature>
+					<feature name="Vertical">
+						<description>Across abstraction levels</description>
+					</feature>
+				</alt>
+			</and>
+			<alt abstract="true" name="Architecture">
+				<description>System organization for transformation execution</description>
+				<feature name="Global_view">
+					<description>Centralized transformation engine</description>
+				</feature>
+				<alt abstract="true" name="Federation">
+					<description>Distributed transformation control</description>
+					<feature name="Autonomous"/>
+					<feature name="Cooperative_Agreement"/>
+					<feature name="Delegation"/>
+					<feature name="Conflict_Resolution_Protocol"/>
+				</alt>
+			</alt>
+			<or abstract="true" name="Tool_Support">
+				<description>Implementation mechanisms</description>
+				<feature name="Transformation_Language">
+					<description>Specialized languages (e.g., ATL, QVT)</description>
+				</feature>
+				<feature name="API-based">
+					<description>Programmatic transformations</description>
+				</feature>
+				<feature name="DSL-based">
+					<description>Domain-specific transformers</description>
+				</feature>
+			</or>
+		</and>
+	</and>
+</and>
+</struct>
+<constraints>
+<rule>
+	<imp>
+		<var>Matching_Level</var>
+		<var>Matching</var>
+	</imp>
+</rule>
+<rule>
+	<imp>
+		<disj>
+			<var>XML</var>
+			<disj>
+				<var>RDF</var>
+				<disj>
+					<var>JSON</var>
+					<disj>
+						<var>SQL</var>
+						<var>GraphQL</var>
+					</disj>
+				</disj>
+			</disj>
+		</disj>
+		<var>Schemas</var>
+	</imp>
+</rule>
+<rule>
+	<imp>
+		<disj>
+			<var>XMI</var>
+			<disj>
+				<var>Set</var>
+				<disj>
+					<var>Graphs</var>
+					<disj>
+						<var>Logics</var>
+						<disj>
+							<var>Object_Oriented</var>
+							<var>OWL</var>
+						</disj>
+					</disj>
+				</disj>
+			</disj>
+		</disj>
+		<var>Models</var>
+	</imp>
+</rule>
+<rule>
+	<imp>
+		<var>Correspondence</var>
+		<var>Matching</var>
+	</imp>
+</rule>
+<rule>
+	<imp>
+		<var>Transformation</var>
+		<var>Mapping</var>
+	</imp>
+</rule>
+<rule>
+	<imp>
+		<var>Consistency</var>
+		<disj>
+			<var>Mapping</var>
+			<var>Alignment</var>
+		</disj>
+	</imp>
+</rule>
+</constraints>
+</featureModel>

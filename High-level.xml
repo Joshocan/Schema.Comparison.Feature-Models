@@ -11,9 +11,9 @@
 		<graphics key="layoutalgorithm" value="1"/>
 	</properties>
 	<struct>
-		<and abstract="true" mandatory="true" name="Multi-artefact Management">
+		<and abstract="true" mandatory="true" name="Multi_Artefact Management">
 			<description>High-level (Root) feature for approaches with multiple artefacts (Models or schemas) </description>
-			<feature abstract="true" mandatory="true" name="Multi-artifact">
+			<feature abstract="true" mandatory="true" name="Multi_Artifact">
 				<description>Addresses the paradigm of handling multiple, diverse model types with distinct constraints. This feature is concerned with the interaction, where each model may have different structures, rules, or semantics. </description>
 			</feature>
 			<feature abstract="true" mandatory="true" name="Approaches">
