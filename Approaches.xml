@@ -26,13 +26,6 @@
 				<feature name="Format_Mismatch"/>
 				<feature name="Duplications_Redundancy"/>
 			</alt>
-			<and abstract="true" mandatory="true" name="Operations">
-				<description>Processes to align schemas/models.</description>
-				<graphics key="collapsed" value="true"/>
-				<feature name="Matching"/>
-				<feature name="Mapping"/>
-				<feature name="Alignment"/>
-			</and>
 			<alt abstract="true" mandatory="true" name="Application_Domain">
 				<description>Target domains for integration.</description>
 				<graphics key="collapsed" value="true"/>
@@ -43,9 +36,9 @@
 				<feature name="Cyber_Physical_Systems"/>
 			</alt>
 			<and abstract="true" mandatory="true" name="Implementation">
-				<graphics key="collapsed" value="true"/>
+				<graphics key="collapsed" value="false"/>
 				<or abstract="true" name="AI_Theme">
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<and abstract="true" name="NLP">
 						<graphics key="collapsed" value="true"/>
 						<feature name="Text_Embedding_Transfer"/>
@@ -83,14 +76,14 @@
 					<feature name="LLM"/>
 				</or>
 				<alt abstract="true" name="Learning_Techniques">
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<and abstract="true" name="Supervised_Learning">
 						<graphics key="collapsed" value="true"/>
 						<feature name="Classification"/>
 						<feature name="Regression"/>
 						<feature name="Neural_Networks"/>
 						<alt abstract="true" name="Classification_Algorithms">
-							<graphics key="collapsed" value="true"/>
+							<graphics key="collapsed" value="false"/>
 							<feature name="SVM"/>
 							<feature name="Decision_Tree"/>
 							<feature name="Random_Forest"/>
@@ -108,20 +101,20 @@
 						<feature name="Dimensionality_Reduction"/>
 						<feature name="Anomaly_Detection"/>
 						<alt abstract="true" name="Clustering_Algorithms">
-							<graphics key="collapsed" value="true"/>
+							<graphics key="collapsed" value="false"/>
 							<feature name="K-means"/>
 							<feature name="DBSCAN"/>
 							<feature name="Hierarchical"/>
 						</alt>
 						<alt abstract="true" name="Dimensionality_Methods">
-							<graphics key="collapsed" value="true"/>
+							<graphics key="collapsed" value="false"/>
 							<feature name="PCA"/>
 							<feature name="T-SNE"/>
 							<feature name="Auto-encoders"/>
 						</alt>
 					</and>
 					<and abstract="true" name="Deep_Learning">
-						<graphics key="collapsed" value="true"/>
+						<graphics key="collapsed" value="false"/>
 						<feature name="FNN"/>
 						<feature name="CNN"/>
 						<feature name="RNN"/>
@@ -131,7 +124,7 @@
 						<feature name="Transformer_Transfer"/>
 					</and>
 					<and abstract="true" name="Reinforcement_Learning">
-						<graphics key="collapsed" value="true"/>
+						<graphics key="collapsed" value="false"/>
 						<feature name="Q-Learning"/>
 						<feature name="Deep_Q_Network"/>
 						<feature name="Policy_Gradient"/>
