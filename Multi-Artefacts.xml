@@ -131,7 +131,7 @@
 	</or>
 	<and abstract="true" mandatory="true" name="Management">
 		<description>Defines how the artefacts are managed and how correspondence between them is handled.</description>
-		<graphics key="collapsed" value="true"/>
+		<graphics key="collapsed" value="false"/>
 		<graphics key="collapse" value="true"/>
 		<and abstract="true" name="Correspondence">
 			<description>Defines the relationships or correspondences between the elements of the artefacts.</description>
@@ -343,7 +343,7 @@
 		</and>
 		<and abstract="true" name="Transformation">
 			<description>Systematic conversion of artefacts between representations while preserving semantics and addressing heterogeneity</description>
-			<graphics key="collapsed" value="true"/>
+			<graphics key="collapsed" value="false"/>
 			<graphics key="collapse" value="true"/>
 			<alt abstract="true" mandatory="true" name="Paradigm">
 				<description>Fundamental transformation approach</description>
@@ -377,23 +377,68 @@
 					<feature name="Batch-level"/>
 				</alt>
 			</and>
-			<or abstract="true" name="Techniques">
-				<description>Technical implementation methods</description>
-				<feature name="Weaving">
-					<description>Link creation without modification</description>
-				</feature>
-				<feature name="Merging">
-					<description>Combination of model elements</description>
-				</feature>
-				<feature name="Extension">
-					<description>Addition of new properties</description>
-				</feature>
-				<and abstract="true" name="Advanced">
-					<feature name="Dynamic_typing"/>
-					<feature name="Heterogenous_transformations"/>
-					<feature name="Incremental_transformation"/>
-				</and>
-			</or>
+			<and abstract="true" name="Techniques">
+				<description>Technical methods for transforming artefacts between representations while preserving semantics</description>
+				<alt abstract="true" name="Global_view">
+					<description>Whole-model transformation approaches that consider system-wide impacts</description>
+					<feature name="Weaving">
+						<description>
+							Non-destructive linking of elements across models using traceability links. Maintains original artefacts while establishing relationships through:
+							- Model weaving (e.g., using EMF Profiles)
+							- Aspect-oriented composition
+							- Traceability matrices
+						</description>
+					</feature>
+					<feature name="Merging">
+						<description>
+							Consolidation of model elements into unified representations through:
+							- Model composition operators
+							- Triple Graph Grammar (TGG) approaches
+							- Conflict resolution protocols
+							- Union/intersection operations
+						</description>
+					</feature>
+				</alt>
+				<alt abstract="true" name="Local_view">
+					<description>Targeted transformations applied to specific model subsets</description>
+					<feature name="Dynamic_typing">
+						<description>
+							Runtime type adaptation allowing:
+							- Late-bound model element typing
+							- Schema evolution support
+							- Gradual metamodel refinement
+							- Duck typing patterns
+						</description>
+					</feature>
+					<feature name="Heterogenous_transformations">
+						<description>
+							Cross-metamodel conversions supporting:
+							- Bridge transformations
+							- Metamodel alignment
+							- Lossy/lossless conversion strategies
+							- Semantic preservation rules
+						</description>
+					</feature>
+					<feature name="Incremental_transformation">
+						<description>
+							Delta-based processing that:
+							- Only processes changed elements
+							- Maintains transformation caches
+							- Supports live model synchronization
+							- Enables reactive model updates
+						</description>
+					</feature>
+					<feature name="Extension">
+						<description>
+							Augmentation of existing models through:
+							- Stereotype applications
+							- Tagged value additions
+							- Model decoration patterns
+							- Mixin-based composition
+						</description>
+					</feature>
+				</alt>
+			</and>
 			<and abstract="true" name="Context">
 				<description>Execution environment characteristics</description>
 				<alt abstract="true" name="Mode">
@@ -415,19 +460,6 @@
 					</feature>
 				</alt>
 			</and>
-			<alt abstract="true" name="Architecture">
-				<description>System organization for transformation execution</description>
-				<feature name="Global_view">
-					<description>Centralized transformation engine</description>
-				</feature>
-				<alt abstract="true" name="Federation">
-					<description>Distributed transformation control</description>
-					<feature name="Autonomous"/>
-					<feature name="Cooperative_Agreement"/>
-					<feature name="Delegation"/>
-					<feature name="Conflict_Resolution_Protocol"/>
-				</alt>
-			</alt>
 			<or abstract="true" name="Tool_Support">
 				<description>Implementation mechanisms</description>
 				<feature name="Transformation_Language">
