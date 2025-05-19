@@ -73,15 +73,15 @@
 						<feature name="Cross_Domain_Transfer"/>
 						<feature name="Behavioral_Transfer"/>
 					</alt>
-					<feature name="LLM"/>
+					<and abstract="true" name="Generative AI">
+						<graphics key="collapsed" value="true"/>
+						<feature mandatory="true" name="LLM"/>
+					</and>
 				</or>
 				<and abstract="true" name="Learning_Techniques">
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<alt abstract="true" name="Supervised_Learning">
-						<graphics key="collapsed" value="false"/>
-						<feature name="Classification"/>
-						<feature name="Regression"/>
-						<feature name="Neural_Networks"/>
+						<graphics key="collapsed" value="true"/>
 						<alt abstract="true" name="Classification_Algorithms">
 							<graphics key="collapsed" value="false"/>
 							<feature name="SVM"/>
@@ -97,14 +97,12 @@
 					</alt>
 					<alt abstract="true" name="Unsupervised_Learning">
 						<graphics key="collapsed" value="false"/>
-						<feature name="Clustering"/>
-						<feature name="Dimensionality_Reduction"/>
-						<feature name="Anomaly_Detection"/>
 						<alt abstract="true" name="Clustering_Algorithms">
 							<graphics key="collapsed" value="false"/>
 							<feature name="K-means"/>
 							<feature name="DBSCAN"/>
 							<feature name="Hierarchical"/>
+							<feature name="Anomaly_Detection"/>
 						</alt>
 						<alt abstract="true" name="Dimensionality_Methods">
 							<graphics key="collapsed" value="false"/>
@@ -114,7 +112,7 @@
 						</alt>
 					</alt>
 					<alt abstract="true" name="Deep_Learning">
-						<graphics key="collapsed" value="false"/>
+						<graphics key="collapsed" value="true"/>
 						<feature name="FNN"/>
 						<feature name="CNN"/>
 						<feature name="RNN"/>
@@ -131,7 +129,7 @@
 					</alt>
 				</and>
 			</and>
-			<or abstract="true" mandatory="true" name="Model_Evaluation">
+			<and abstract="true" mandatory="true" name="Model_Evaluation">
 				<graphics key="collapsed" value="true"/>
 				<and abstract="true" name="Accuracy_Metrics">
 					<graphics key="collapsed" value="true"/>
@@ -165,28 +163,26 @@
 						<description>Input contribution analysis</description>
 					</feature>
 				</alt>
-			</or>
-			<or abstract="true" mandatory="true" name="Data_Scale">
+			</and>
+			<and abstract="true" mandatory="true" name="Data_Scale">
 				<description>Expected data volume characteristics</description>
 				<graphics key="collapsed" value="true"/>
 				<feature name="Small_Data">
 					<description>Fits in single machine memory (&lt;10GB)</description>
 				</feature>
-				<and name="Large_Data">
+				<alt abstract="true" name="Large_Data">
 					<description>Requires distributed processing</description>
-					<or abstract="true" name="Large_Data_Strategies">
-						<feature name="Chunking">
-							<description>Batch processing of data partitions</description>
-						</feature>
-						<feature name="Streaming">
-							<description>Real-time record-by-record processing</description>
-						</feature>
-						<feature name="Distributed_Storage">
-							<description>Data lakes/warehouses (e.g., HDFS, S3)</description>
-						</feature>
-					</or>
-				</and>
-			</or>
+					<feature name="Chunking">
+						<description>Batch processing of data partitions</description>
+					</feature>
+					<feature name="Streaming">
+						<description>Real-time record-by-record processing</description>
+					</feature>
+					<feature name="Distributed_Storage">
+						<description>Data lakes/warehouses (e.g., HDFS, S3)</description>
+					</feature>
+				</alt>
+			</and>
 		</and>
 	</struct>
 	<constraints>
@@ -209,12 +205,6 @@
 			<imp>
 				<var>Graph_Neural_Transfer</var>
 				<var>GNN</var>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>MAML</var>
-				<var>Neural_Networks</var>
 			</imp>
 		</rule>
 		<rule>
