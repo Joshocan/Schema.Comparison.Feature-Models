@@ -1,4 +1,4 @@
-# Schema/Model Comparison Feature Model
+# Schema/Model Interoperability Feature Model
 
 This repository contains the feature models for various operations (Matching, Mapping and Alignment)  and ML/AI approaches related to model/schema comparison. 
 It is designed to be used with **FeatureIDE Eclipse** for managing and visualizing feature models.
