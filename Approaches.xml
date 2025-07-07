@@ -13,22 +13,9 @@
 	<struct>
 		<and abstract="true" mandatory="true" name="Approaches">
 			<description>Methods to resolve schema/model integration challenges.</description>
-			<or abstract="true" mandatory="true" name="Problems">
-				<description>Challenges in schema/model integration.</description>
-				<graphics key="collapsed" value="true"/>
-				<feature name="Inconsistency"/>
-				<feature name="Semantic_Ambiguities"/>
-				<feature name="Structural_Variations"/>
-				<feature name="Structural_Transformation"/>
-				<feature name="Syntactic_Mismatch"/>
-				<feature name="Structural_Repair"/>
-				<feature name="Constraints_Conflicts"/>
-				<feature name="Format_Mismatch"/>
-				<feature name="Duplications_Redundancy"/>
-			</or>
 			<or abstract="true" mandatory="true" name="Application_Domain">
 				<description>Target domains for integration.</description>
-				<graphics key="collapsed" value="true"/>
+				<graphics key="collapsed" value="false"/>
 				<feature name="Databases"/>
 				<feature name="MDE"/>
 				<feature name="Information_Science"/>
@@ -40,7 +27,7 @@
 				<or abstract="true" name="AI_Theme">
 					<graphics key="collapsed" value="false"/>
 					<and abstract="true" name="NLP">
-						<graphics key="collapsed" value="true"/>
+						<graphics key="collapsed" value="false"/>
 						<feature name="Text_Embedding_Transfer"/>
 						<feature name="LLM_FineTuning"/>
 						<alt name="NLP_Transfer_Scope">
@@ -50,38 +37,33 @@
 						</alt>
 					</and>
 					<and abstract="true" name="Knowledge_Graphs">
-						<graphics key="collapsed" value="true"/>
+						<graphics key="collapsed" value="false"/>
 						<feature name="Entity_Embedding_Transfer"/>
 						<feature name="Schema_Mapping_Transfer"/>
 						<feature name="Graph_Neural_Transfer"/>
 					</and>
 					<alt abstract="true" name="Meta_Learning">
-						<graphics key="collapsed" value="true"/>
+						<graphics key="collapsed" value="false"/>
 						<feature name="MAML"/>
 						<feature name="Metric_Based_Transfer"/>
 						<feature name="Memory_Augmented_Transfer"/>
 					</alt>
 					<alt abstract="true" name="Transfer_Learning">
-						<graphics key="collapsed" value="true"/>
+						<graphics key="collapsed" value="false"/>
 						<feature name="Feature_Extraction"/>
 						<feature name="Full_Model_Finetuning"/>
 						<feature name="Progressive_Neural_Transfer"/>
 					</alt>
-					<alt abstract="true" name="Recommender_Systems">
-						<graphics key="collapsed" value="true"/>
-						<feature name="Cold_Start_Transfer"/>
-						<feature name="Cross_Domain_Transfer"/>
-						<feature name="Behavioral_Transfer"/>
-					</alt>
 					<and abstract="true" name="Generative AI">
-						<graphics key="collapsed" value="true"/>
-						<feature mandatory="true" name="LLM"/>
+						<graphics key="collapsed" value="false"/>
+						<feature name="LM"/>
+						<feature name="LLM"/>
 					</and>
 				</or>
 				<and abstract="true" name="Learning_Techniques">
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<alt abstract="true" name="Supervised_Learning">
-						<graphics key="collapsed" value="true"/>
+						<graphics key="collapsed" value="false"/>
 						<alt abstract="true" name="Classification_Algorithms">
 							<graphics key="collapsed" value="false"/>
 							<feature name="SVM"/>
@@ -112,7 +94,7 @@
 						</alt>
 					</alt>
 					<alt abstract="true" name="Deep_Learning">
-						<graphics key="collapsed" value="true"/>
+						<graphics key="collapsed" value="false"/>
 						<feature name="FNN"/>
 						<feature name="CNN"/>
 						<feature name="RNN"/>
@@ -130,16 +112,16 @@
 				</and>
 			</and>
 			<and abstract="true" mandatory="true" name="Model_Evaluation">
-				<graphics key="collapsed" value="true"/>
+				<graphics key="collapsed" value="false"/>
 				<and abstract="true" name="Accuracy_Metrics">
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<feature name="Precision"/>
 					<feature name="Recall"/>
 					<feature name="F1_Score"/>
 				</and>
 				<and abstract="true" name="Performance_Metrics">
 					<description>System efficiency measurements</description>
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<alt abstract="true" name="Computational">
 						<feature name="Execution_Time"/>
 						<feature name="Memory_Usage"/>
@@ -152,34 +134,12 @@
 				</and>
 				<alt abstract="true" name="Diagnostics">
 					<description>Detailed analysis tools</description>
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<feature name="Confusion_Matrix">
 						<description>Classification performance breakdown</description>
 					</feature>
 					<feature name="Residual_Plots">
 						<description>Error distribution visualization</description>
-					</feature>
-					<feature name="Feature_Importance">
-						<description>Input contribution analysis</description>
-					</feature>
-				</alt>
-			</and>
-			<and abstract="true" mandatory="true" name="Data_Scale">
-				<description>Expected data volume characteristics</description>
-				<graphics key="collapsed" value="true"/>
-				<feature name="Small_Data">
-					<description>Fits in single machine memory (&lt;10GB)</description>
-				</feature>
-				<alt abstract="true" name="Large_Data">
-					<description>Requires distributed processing</description>
-					<feature name="Chunking">
-						<description>Batch processing of data partitions</description>
-					</feature>
-					<feature name="Streaming">
-						<description>Real-time record-by-record processing</description>
-					</feature>
-					<feature name="Distributed_Storage">
-						<description>Data lakes/warehouses (e.g., HDFS, S3)</description>
 					</feature>
 				</alt>
 			</and>
@@ -205,12 +165,6 @@
 			<imp>
 				<var>Graph_Neural_Transfer</var>
 				<var>GNN</var>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Recommender_Systems</var>
-				<var>Supervised_Learning</var>
 			</imp>
 		</rule>
 	</constraints>
