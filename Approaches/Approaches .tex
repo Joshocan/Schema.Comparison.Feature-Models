@@ -1,0 +1,27 @@
+\begin{forest}
+	featureDiagram
+	[Approaches,abstract[Application\_Domain,abstract,mandatory[,collapsed,edge label={node[hiddenNodes]{5}}]][Implementation,abstract,mandatory[AI\_Theme,abstract,optional[NLP,abstract,or[Text\_Embedding\_Transfer,concrete,optional][LLM\_FineTuning,concrete,optional][NLP\_Transfer\_Scope,concrete,optional[,collapsed,edge label={node[hiddenNodes]{2}}]]][Knowledge\_Graphs,abstract[Entity\_Embedding\_Transfer,concrete,optional][Schema\_Mapping\_Transfer,concrete,optional][Graph\_Neural\_Transfer,concrete,optional]][Meta\_Learning,abstract[MAML,concrete,alternative][Metric\_Based\_Transfer,concrete][Memory\_Augmented\_Transfer,concrete]][Transfer\_Learning,abstract[Feature\_Extraction,concrete,alternative][Full\_Model\_Finetuning,concrete][Progressive\_Neural\_Transfer,concrete]][Generative AI,abstract[LM,concrete,optional][LLM,concrete,optional]]][Learning\_Techniques,abstract,optional[,collapsed,edge label={node[hiddenNodes]{31}}]]][Model\_Evaluation,abstract,mandatory[Accuracy\_Metrics,abstract,optional[Precision,concrete,optional][Recall,concrete,optional][F1\_Score,concrete,optional]][Performance\_Metrics,abstract,optional[Computational,abstract,optional[Execution\_Time,concrete,alternative][Memory\_Usage,concrete][Throughput,concrete]][Scalability,abstract,optional[Horizontal,concrete,alternative][Vertical,concrete]]][Diagnostics,abstract,optional[Confusion\_Matrix,concrete,alternative][Residual\_Plots,concrete]]]]	
+	\matrix [anchor=north west] at (current bounding box.north east) {
+		\node [placeholder] {}; \\
+	};
+	\matrix [draw=drawColor,anchor=north west] at (current bounding box.north east) {
+		\node [label=center:\underline{Legend:}] {}; \\
+		\node [abstract,label=right:Abstract Feature] {}; \\
+		\node [concrete,label=right:Concrete Feature] {}; \\
+		\node [mandatory,label=right:Mandatory] {}; \\
+		\node [optional,label=right:Optional] {}; \\
+			\filldraw[drawColor] (0.1,0) - +(-0,-0.2) - +(0.2,-0.2)- +(0.1,0);
+			\draw[drawColor] (0.1,0) -- +(-0.2, -0.4);
+			\draw[drawColor] (0.1,0) -- +(0.2,-0.4);
+			\fill[drawColor] (0,-0.2) arc (240:300:0.2);
+		\node [or,label=right:Or Group] {}; \\			\draw[drawColor] (0.1,0) -- +(-0.2, -0.4);
+			\draw[drawColor] (0.1,0) -- +(0.2,-0.4);
+			\draw[drawColor] (0,-0.2) arc (240:300:0.2);
+		\node [alternative,label=right:Alternative Group] {}; \\		\node [hiddenNodes,label=center:1,label=right:Collapsed Nodes] {}; \\
+	};
+	\matrix [below=1mm of current bounding box] {
+	\node {\( \text{Deep_Learning} \lor \text{Supervised_Learning} \Rightarrow \text{Transfer_Learning} \)}; \\
+	\node {\( \text{NLP} \Rightarrow \text{Deep_Learning} \)}; \\
+	\node {\( \text{Graph_Neural_Transfer} \Rightarrow \text{GNN} \)}; \\
+	};
+\end{forest}

@@ -14,9 +14,9 @@
 		<and abstract="true" mandatory="true" name="Multi_Artefacts">
 			<description>Management of multiple model/schema artefacts with diverse characteristics, enabling their integration and comparison.</description>
 			<graphics key="collapse" value="true"/>
-			<alt abstract="true" mandatory="true" name="Abstraction_Level">
+			<alt abstract="true" name="Abstraction_Level">
 				<description>Defines the levels at which artefacts can be managed, from instances to meta-models.</description>
-				<graphics key="collapsed" value="true"/>
+				<graphics key="collapsed" value="false"/>
 				<graphics key="collapse" value="true"/>
 				<feature name="Instance"/>
 				<feature name="Model"/>
@@ -24,7 +24,7 @@
 			</alt>
 			<and abstract="true" name="Matching_Level">
 				<description>Represents the different units or approaches used in the matching process.</description>
-				<graphics key="collapsed" value="true"/>
+				<graphics key="collapsed" value="false"/>
 				<or abstract="true" name="Structural">
 					<description>Focuses on matching based on the structure of models or schemas. Select exactly one approach.</description>
 					<graphics key="collapsed" value="false"/>
@@ -67,7 +67,7 @@
 	</and>
 	<and abstract="true" mandatory="true" name="Artefacts">
 		<description>Defines the artefacts involved in the comparison and integration process, such as models and schemas.</description>
-		<graphics key="collapsed" value="true"/>
+		<graphics key="collapsed" value="false"/>
 		<graphics key="collapse" value="true"/>
 		<or abstract="true" mandatory="true" name="Type">
 			<feature name="Models"/>
@@ -100,7 +100,7 @@
 	</and>
 	<and abstract="true" mandatory="true" name="Execution_Context">
 		<description>Defines the context under which the artefacts are executed, including invocation, storage, and environmental setup.</description>
-		<graphics key="collapsed" value="true"/>
+		<graphics key="collapsed" value="false"/>
 		<graphics key="collapse" value="true"/>
 		<alt abstract="true" mandatory="true" name="Invocation">
 			<description>Defines the conditions under which the artefacts are invoked, whether once or repeatedly.</description>
@@ -121,9 +121,9 @@
 			</alt>
 		</alt>
 	</and>
-	<or abstract="true" mandatory="true" name="Comparison">
+	<or abstract="true" name="Operations">
 		<description>Defines the operations for comparing models and schemas to detect similarities and differences.</description>
-		<graphics key="collapsed" value="true"/>
+		<graphics key="collapsed" value="false"/>
 		<graphics key="collapse" value="true"/>
 		<feature name="Matching"/>
 		<feature name="Mapping"/>
@@ -135,7 +135,7 @@
 		<graphics key="collapse" value="true"/>
 		<and abstract="true" name="Correspondence">
 			<description>Defines the relationships or correspondences between the elements of the artefacts.</description>
-			<graphics key="collapsed" value="true"/>
+			<graphics key="collapsed" value="false"/>
 			<graphics key="collapse" value="true"/>
 			<and abstract="true" mandatory="true" name="Constraints">
 				<description>Defines the constraints that need to be satisfied between different artefacts or within an artefact.</description>
@@ -196,11 +196,11 @@
 		</and>
 		<and abstract="true" name="Consistency">
 			<description>Defines how consistency is maintained in the artefacts, including change propagation and validation.</description>
-			<graphics key="collapsed" value="true"/>
+			<graphics key="collapsed" value="false"/>
 			<graphics key="collapse" value="true"/>
 			<and abstract="true" name="Verification">
 				<description>Methods for ensuring artefact consistency across different dimensions</description>
-				<graphics key="collapsed" value="true"/>
+				<graphics key="collapsed" value="false"/>
 				<alt abstract="true" name="Verification_Scope">
 					<description>Granularity level for consistency checks</description>
 					<feature name="Inter-artefact">
@@ -225,11 +225,11 @@
 			</and>
 			<and abstract="true" name="Change_Propagation">
 				<description>Describes how changes are propagated between artefacts and what types of updates are allowed.</description>
-				<graphics key="collapsed" value="true"/>
+				<graphics key="collapsed" value="false"/>
 				<graphics key="collapse" value="true"/>
 				<and abstract="true" name="Changes">
 					<description>Defines how changes in models evolution.</description>
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<feature name="Serialisation">
 						<description>Changes are applied one at a time in a specific order, avoiding conflicts but may be slower.</description>
 					</feature>
@@ -269,14 +269,14 @@
 				</alt>
 				<alt abstract="true" name="Propagation_Scope">
 					<description>Defines whether the propagation is local or global across the artefacts.</description>
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<graphics key="collapse" value="true"/>
 					<feature name="Local"/>
 					<feature name="Global"/>
 				</alt>
 				<alt abstract="true" name="Propagation_policy">
 					<description>Defines the policy governing how changes are propagated.</description>
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<graphics key="collapse" value="true"/>
 					<feature name="Immediate"/>
 					<feature name="Defined"/>
@@ -285,7 +285,7 @@
 			</and>
 			<and abstract="true" name="Conformance">
 				<description>The "Conformance" feature ensures that models adhere to the rules and standards of their modeling language. It focuses on well-formedness and metamodel definitions.</description>
-				<graphics key="collapsed" value="true"/>
+				<graphics key="collapsed" value="false"/>
 				<and abstract="true" name="Metamodel_Conformance">
 					<description>Validation against language definitions</description>
 					<alt abstract="true" name="Metamodel_Type">
@@ -450,8 +450,9 @@
 						<description>Cross-technology transformations</description>
 					</feature>
 				</alt>
-				<alt abstract="true" name="Abstraction_level">
+				<alt abstract="true" name="Transformation_level">
 					<description>Semantic distance between source/target</description>
+					<graphics key="collapsed" value="true"/>
 					<feature name="Horizontal">
 						<description>Same abstraction level</description>
 					</feature>
