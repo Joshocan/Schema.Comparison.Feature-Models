@@ -377,7 +377,7 @@
 					<feature name="Batch-level"/>
 				</alt>
 			</and>
-			<and abstract="true" name="Techniques">
+			<and abstract="true" name="Architecture">
 				<description>Technical methods for transforming artefacts between representations while preserving semantics</description>
 				<alt abstract="true" name="Global_view">
 					<description>Whole-model transformation approaches that consider system-wide impacts</description>
